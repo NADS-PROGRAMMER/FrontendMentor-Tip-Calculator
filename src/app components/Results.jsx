@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ResultLabel from '../base components/ResultLabel'
+import { CalculatorContext } from '../contexts/CalculatorContext'
 
 function Results() {
 
+    // Contexts
+    const { tipAmount, total } = useContext(CalculatorContext)
+    // Formatter (Currency is for USD).
     const formatter = (number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number)
     return (
         <div className="flex flex-col justify-between gap-[1rem] bg-tipVeryDarkCyan p-[2rem_1.5rem_2rem_1.5rem] rounded-[15px] h-full">
@@ -14,15 +18,15 @@ function Results() {
                         <p className="font-[700] text-tipWhite">Tip Amount</p>
                         <span className="text-tipDarkGrayishCyan2 font-[400]">/ person</span>
                     </section>
-                    <ResultLabel result={formatter(0)}/>
+                    <ResultLabel result={formatter(tipAmount)}/>
                 </section>
 
                 <section className="flex justify-between items-center">
                     <section>
-                        <p className="font-[700] text-tipWhite">Tip Amount</p>
+                        <p className="font-[700] text-tipWhite">Total</p>
                         <span className="text-tipDarkGrayishCyan2 font-[400]">/ person</span>
                     </section>
-                    <ResultLabel result={formatter(0)}/>
+                    <ResultLabel result={formatter(total)}/>
                 </section>
             </section>
             

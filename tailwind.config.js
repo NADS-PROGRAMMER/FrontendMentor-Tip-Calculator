@@ -17,9 +17,6 @@ module.exports = {
         tipLightGrayishCyan2: 'hsl(189, 41%, 97%)',
         tipWhite: 'hsl(0, 0%, 100%)'
       },
-      screens: {
-        
-      }
     },
   },
   plugins: [],

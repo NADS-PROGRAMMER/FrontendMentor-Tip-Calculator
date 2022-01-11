@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TipButton({ percent, addedClass}) {
+function TipButton({ percent, addedClass, onClick, onDblClick }) {
 
     /**
      * WHEN FOCUSED!
@@ -9,7 +9,10 @@ function TipButton({ percent, addedClass}) {
      */
     return (
         <>
-         <button className={`relative max-h-[48px] bg-tipVeryDarkCyan w-full p-[.65rem] text-tipWhite font-[700] rounded-[6px] text-xl hover:bg-tipStrongCyan hover:bg-opacity-60 hover:text-tipVeryDarkCyan ${addedClass}`}>{percent}%</button>   
+         <button 
+            onClick={onClick}
+            onDoubleClick={onDblClick}
+            className={`relative max-h-[48px] bg-tipVeryDarkCyan w-full p-[.65rem] text-tipWhite font-[700] rounded-[6px] text-xl hover:bg-tipStrongCyan hover:bg-opacity-60 hover:text-tipVeryDarkCyan ${addedClass}`}>{percent}%</button>   
         </>
     )
 }

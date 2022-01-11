@@ -6,7 +6,7 @@ module.exports = {
     extend: {
 
       fontFamily: {
-        spaceMono: ['Kumbh Sans', 'sans-serif']
+        spaceMono: ['Space Mono', 'sans-serif']
       },
       colors: {
         tipStrongCyan: 'hsl(172, 67%, 45%)',
@@ -16,6 +16,9 @@ module.exports = {
         tipLightGrayishCyan: 'hsl(185, 41%, 84%)',
         tipLightGrayishCyan2: 'hsl(189, 41%, 97%)',
         tipWhite: 'hsl(0, 0%, 100%)'
+      },
+      screens: {
+        
       }
     },
   },

@@ -4,8 +4,8 @@ export const CalculatorContext = React.createContext(null);
 
 export function CalculatorProvider( props ) {
 
-    const [bill, setBill] = useState(0)
-    const [noOfPeople, setNoOfPeople] = useState(0)
+    const [bill, setBill] = useState('')
+    const [noOfPeople, setNoOfPeople] = useState('')
      
     return (
 

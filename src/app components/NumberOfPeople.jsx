@@ -9,8 +9,18 @@ function NumberOfPeople() {
 
     return (
         <div className="flex flex-col items-stretch gap-[13px]">
-            <label className="font-[700] text-tipDarkGrayishCyan text-[1rem]"  htmlFor="people">Number of People</label>
-            <Textfield value={noOfPeople} type="text" id="people" svgLogo={PeopleLogo} addedClass="w-full"/>
+
+            <label 
+                className="font-[700] text-tipDarkGrayishCyan text-[1rem]"  htmlFor="people">
+                    Number of People
+            </label>
+
+            <Textfield 
+                value={noOfPeople} 
+                type="text" 
+                id="people" 
+                svgLogo={PeopleLogo} 
+                addedClass="w-full placeholder:text-tipDarkGrayishCyan2" placeholderValue="0"/>
         </div>
     )
 }

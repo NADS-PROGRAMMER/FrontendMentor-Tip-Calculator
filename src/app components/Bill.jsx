@@ -9,11 +9,10 @@ function Bill() {
 
     return (
         <div className="flex flex-col items-stretch gap-2">
-            <label className="text-[1rem] font-[700] text-tipDarkGrayishCyan" htmlFor="bill">Bill</label>
+            <label className="text-[1rem] font-[700] text-tipDarkGrayishCyan " htmlFor="bill">Bill</label>
             <Textfield value={bill} onChange={(e) => { 
-                if (/0-9/ig.test(e.target.value))
                     setBill(e.target.value)
-            }} type="" id="bill" svgLogo={DollarLogo} addedClass="w-full"/>
+            }} type="" id="bill" svgLogo={DollarLogo} addedClass="w-full placeholder:text-tipDarkGrayishCyan2" placeholderValue="0"/>
         </div>
     )
 }

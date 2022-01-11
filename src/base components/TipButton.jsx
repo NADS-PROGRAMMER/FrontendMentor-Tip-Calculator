@@ -9,7 +9,7 @@ function TipButton({ percent, addedClass}) {
      */
     return (
         <>
-         <button className={`relative bg-tipVeryDarkCyan w-full p-[.65rem] text-tipWhite font-[700] rounded-[6px] text-xl hover:bg-tipStrongCyan hover:bg-opacity-60 hover:text-tipVeryDarkCyan ${addedClass}`}>{percent}%</button>   
+         <button className={`relative max-h-[48px] bg-tipVeryDarkCyan w-full p-[.65rem] text-tipWhite font-[700] rounded-[6px] text-xl hover:bg-tipStrongCyan hover:bg-opacity-60 hover:text-tipVeryDarkCyan ${addedClass}`}>{percent}%</button>   
         </>
     )
 }

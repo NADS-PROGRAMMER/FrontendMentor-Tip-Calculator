@@ -1,6 +1,8 @@
 import TipCalculator from './app components/TipCalculator'
 import { CalculatorProvider } from './contexts/CalculatorContext';
 function App() {
+
+  document.title = 'Tip Calculator'
   return (
     <main className="min-h-screen flex flex-col gap-3 justify-end md:justify-center items-center bg-tipLightGrayishCyan">
       <CalculatorProvider>

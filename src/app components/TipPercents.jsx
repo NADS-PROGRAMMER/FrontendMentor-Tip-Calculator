@@ -69,11 +69,12 @@ function TipPercents() {
                         removeClass();
                         setPercent(0)
                     }}
-                    onChange={(e) => {
-                        if (e.target.value === '.')
-                            setCustomPercent('0.')
-                        else if (String(percent + e.target.value).search(/[^0-9.]/) === -1)
-                            setCustomPercent(e.target.value)
+                    onChange={(event) => {
+                        const pattern = /(\d+$|^\d+\.$|\d+\.\d+$)/
+
+                        if (pattern.test(event.target.value) || event.target.value == '') {
+                            setCustomPercent(event.target.value)
+                        }
                     }}
                  />
             </div>

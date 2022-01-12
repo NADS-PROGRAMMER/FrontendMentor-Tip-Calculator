@@ -6,11 +6,18 @@ import { useCheck } from '../hooks/useCheck'
 
 function Bill() {
 
+    // Hooks that checks if all of the required inputs are provided.
     const isAllFieldsProvided = useCheck()
+
+    // All of the states from our CalculatorContext.
     const {bill, setBill, percent, noOfPeople, customPercent, tipAmount, setTipAmount, setTotal} = useContext(CalculatorContext)
 
+    /**
+     * RUNS whenever the 'bill' state changes. */
     useEffect(() => {
 
+        /** Evaluate if the user chooses one 
+         * of the buttons or they give a custom percents */
         const currentPercent = percent || (customPercent / 100);
 
         if (isAllFieldsProvided) {
@@ -20,6 +27,8 @@ function Bill() {
         setTipAmount(0)
     }, [bill])
 
+    /**
+     * RUNS whenever the 'tipAmount' state changes. */
     useEffect(() => {
 
         if (isAllFieldsProvided) {
@@ -34,11 +43,13 @@ function Bill() {
             <label className="text-[1rem] font-[700] text-tipDarkGrayishCyan " htmlFor="bill">Bill</label>
             <Textfield 
                 value={bill !== 0 ? bill : ''} 
-                onChange={(e) => { 
-                    if (String(noOfPeople + e.target.value).search(/[^0-9.]/) === -1) {
-                        setBill(e.target.value)
+                onChange={(event) => { 
 
-                        
+                    const pattern = /(\d+$|^\d+\.$|\d+\.\d+$)/
+
+                    if (pattern.test(event.target.value) || event.target.value == '') {
+                        console.log('wow2')
+                        setBill(event.target.value)
                     }
                 }} 
                 type="" 

@@ -70,7 +70,7 @@ function TipPercents() {
                         setPercent(0)
                     }}
                     onChange={(event) => {
-                        const pattern = /(\d+$|^\d+\.$|\d+\.\d+$)/
+                        const pattern = /(^\d+$|^\d+\.$|^\d+\.\d+$)/
 
                         if (pattern.test(event.target.value) || event.target.value == '') {
                             setCustomPercent(event.target.value)
@@ -90,7 +90,7 @@ function CustomPercents({ onClick, onChange, percent }) {
              onChange={onChange}
              value={percent}
              className="bg-tipLightGrayishCyan text-[24px] max-h-[48px] bg-opacity-30 p-[.5rem] rounded-[5px] text-right text-tipVeryDarkCyan font-spaceMono font-[700] focus:outline-2 focus:outline-tipStrongCyan outline-none placeholder:text-tipVeryDarkCyan placeholder:text-opacity-80" 
-             type="text" 
+             type="tel" 
              placeholder='Custom' />
     )
 }

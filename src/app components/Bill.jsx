@@ -45,14 +45,14 @@ function Bill() {
                 value={bill !== 0 ? bill : ''} 
                 onChange={(event) => { 
 
-                    const pattern = /(\d+$|^\d+\.$|\d+\.\d+$)/
+                    const pattern = /(^\d+$|^\d+\.$|^\d+\.\d+$)/
 
                     if (pattern.test(event.target.value) || event.target.value == '') {
                         console.log('wow2')
                         setBill(event.target.value)
                     }
                 }} 
-                type="" 
+                type="tel" 
                 id="bill" 
                 svgLogo={DollarLogo} 
                 addedClass="w-full placeholder:text-tipDarkGrayishCyan2 focus:outline focus:outline-tipStrongCyan" placeholderValue="0"/>

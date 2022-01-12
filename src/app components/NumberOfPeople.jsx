@@ -50,7 +50,7 @@ function NumberOfPeople() {
                     if (String(noOfPeople + e.target.value).search(/[^0-9]/) === -1)
                         setNoOfPeople(e.target.value)
                 }}
-                type="text" 
+                type="tel" 
                 id="people" 
                 svgLogo={PeopleLogo} 
                 addedClass={`w-full placeholder:text-tipDarkGrayishCyan2 ${noOfPeople == 0 && noOfPeople != '' ? 'focus:outline outline-none outline-2 outline-red-500' : 'focus:outline focus:outline-tipStrongCyan'}`} placeholderValue="0"/>

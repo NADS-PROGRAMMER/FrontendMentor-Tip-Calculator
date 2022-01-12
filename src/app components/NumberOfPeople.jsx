@@ -53,7 +53,7 @@ function NumberOfPeople() {
                 type="text" 
                 id="people" 
                 svgLogo={PeopleLogo} 
-                addedClass={`w-full placeholder:text-tipDarkGrayishCyan2 ${noOfPeople == 1 && 'focus:outline outline-none outline-2 outline-red-500'}`} placeholderValue="0"/>
+                addedClass={`w-full placeholder:text-tipDarkGrayishCyan2 ${noOfPeople == 0 && noOfPeople != '' ? 'focus:outline outline-none outline-2 outline-red-500' : 'focus:outline focus:outline-tipStrongCyan'}`} placeholderValue="0"/>
         </div>
     )
 }

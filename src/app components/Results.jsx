@@ -27,7 +27,7 @@ function Results() {
 
             <section className="flex flex-col lg:gap-[2rem]">
                 {/* Tip Amount */}
-                <section className="flex justify-between items-center">
+                <section className="flex flex-wrap justify-between items-center">
                     <section>
                         <p className="font-[700] text-tipWhite">Tip Amount</p>
                         <span className="text-tipDarkGrayishCyan2 font-[400]">/ person</span>
@@ -35,7 +35,7 @@ function Results() {
                     <ResultLabel result={formatter(tipAmount)}/>
                 </section>
 
-                <section className="flex justify-between items-center">
+                <section className="flex flex-wrap justify-between items-center">
                     <section>
                         <p className="font-[700] text-tipWhite">Total</p>
                         <span className="text-tipDarkGrayishCyan2 font-[400]">/ person</span>

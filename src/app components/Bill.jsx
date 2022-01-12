@@ -44,7 +44,7 @@ function Bill() {
                 type="" 
                 id="bill" 
                 svgLogo={DollarLogo} 
-                addedClass="w-full placeholder:text-tipDarkGrayishCyan2" placeholderValue="0"/>
+                addedClass="w-full placeholder:text-tipDarkGrayishCyan2 focus:outline focus:outline-tipStrongCyan" placeholderValue="0"/>
         </div>
     )
 }

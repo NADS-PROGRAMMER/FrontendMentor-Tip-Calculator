@@ -23,7 +23,7 @@ function Results() {
     // Formatter (Currency is for USD).
     const formatter = (number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number)
     return (
-        <div className="flex flex-col justify-between gap-[1rem] bg-tipVeryDarkCyan p-[2rem_1.5rem_2rem_1.5rem] rounded-[15px] h-full">
+        <div className="flex flex-col justify-between gap-[1rem] bg-tipVeryDarkCyan p-[4rem_2.5rem_2.6rem_2.5rem] rounded-[15px] h-full">
 
             <section className="flex flex-col lg:gap-[2rem]">
                 {/* Tip Amount */}

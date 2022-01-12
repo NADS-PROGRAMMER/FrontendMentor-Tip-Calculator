@@ -15,3 +15,7 @@ label {
 .percent-clicked {
   @apply bg-tipStrongCyan text-tipVeryDarkCyan;
 }
+
+.apply-shadow {
+  box-shadow: 0px 40px 50px hsl(185, 41%, 84%);
+}

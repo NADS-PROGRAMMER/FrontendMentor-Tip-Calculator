@@ -1,11 +1,25 @@
 import React, { useContext } from 'react'
 import ResultLabel from '../base components/ResultLabel'
 import { CalculatorContext } from '../contexts/CalculatorContext'
+import { useCheck } from '../hooks/useCheck'
 
 function Results() {
 
     // Contexts
-    const { tipAmount, total } = useContext(CalculatorContext)
+    const { tipAmount, total, setBill, setPercent, setCustomPercent, setNoOfPeople } = useContext(CalculatorContext)
+    const isAllFieldsProvided = useCheck()
+
+    const reset = () => {
+
+        document.querySelectorAll('.tip-button').forEach(element => {
+
+            element.classList.remove('percent-clicked')
+        })
+        setBill(0)
+        setPercent(0)
+        setCustomPercent(0)
+        setNoOfPeople(0)
+    }
     // Formatter (Currency is for USD).
     const formatter = (number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number)
     return (
@@ -30,7 +44,11 @@ function Results() {
                 </section>
             </section>
             
-            <button className="bg-tipStrongCyan bg-opacity-20 bg-opacity-1 p-[.5rem] font-[700] text-[1.1rem] rounded-[5px]  text-tipVeryDarkCyan text-opacity-40">RESET</button>
+            <button 
+                onClick={reset}
+                className={`p-[.5rem] font-[700] text-[1.1rem] rounded-[5px]  text-tipVeryDarkCyan 
+                ${isAllFieldsProvided ? 'bg-tipStrongCyan text-tipVeryDarkCyan hover:bg-tipLightGrayishCyan' : 
+                'bg-tipStrongCyan bg-opacity-30 text-opacity-40 cursor-not-allowed'}`}>RESET</button>
         </div>
     )
 }

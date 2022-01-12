@@ -1,11 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import TipButton from '../base components/TipButton'
 import { CalculatorContext } from '../contexts/CalculatorContext'
+import { useCheck } from '../hooks/useCheck'
 
 function TipPercents() {
 
-    const { percent, setPercent, customPercent, setCustomPercent } = useContext(CalculatorContext)
-
+    const isAllFieldsProvided = useCheck()
+    const {bill, noOfPeople, percent, setPercent, customPercent, setCustomPercent, tipAmount, setTipAmount, setTotal } = useContext(CalculatorContext)
+    
     const availablePercents = [5, 10, 15, 25, 50];
 
     const removeClass = () => {
@@ -16,12 +18,33 @@ function TipPercents() {
         })
     }
 
+    useEffect(() => {
+
+        const currentPercent = percent || (customPercent / 100)
+        
+        if (isAllFieldsProvided) {
+            setTipAmount(bill * currentPercent  / noOfPeople) 
+            return;                           
+        }
+        setTipAmount(0)
+        setTotal(0) 
+    }, [percent, customPercent])
+    
+    useEffect(() => {
+
+        if (isAllFieldsProvided) {
+            setTotal((bill / noOfPeople) + tipAmount)
+            return;
+        } 
+        setTotal(0)
+    }, [tipAmount])
+
     return (
         <div className="flex flex-col items-stretch gap-[13px]">
             <label className="text-[1rem] font-[700] text-tipDarkGrayishCyan"  htmlFor="">Select Tip %</label>
             <div className="grid grid-cols-2 gap-[14px] lg:grid-cols-3">
                 {
-                    availablePercents.map(percent => {
+                    availablePercents.map(percentItem => {
                         return (
                             <TipButton 
                                 onClick={(e) => {
@@ -29,13 +52,13 @@ function TipPercents() {
                                     removeClass()
                                     e.target.classList.add('percent-clicked')
                                     setCustomPercent(0)
-                                    setPercent(percent / 100)
+                                    setPercent(percentItem / 100)
                                 }}
                                 onDblClick={() => { 
                                     removeClass()
                                     setPercent(0)
                                 }}
-                                percent={percent} 
+                                percent={percentItem} 
                                 addedClass="tip-button flex-[1_1_117px]"/>
                         )
                     })

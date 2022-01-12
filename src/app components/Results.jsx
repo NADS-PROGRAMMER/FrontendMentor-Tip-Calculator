@@ -11,14 +11,16 @@ function Results() {
 
     const reset = () => {
 
-        document.querySelectorAll('.tip-button').forEach(element => {
+        if (isAllFieldsProvided) {
+            document.querySelectorAll('.tip-button').forEach(element => {
 
-            element.classList.remove('percent-clicked')
-        })
-        setBill(0)
-        setPercent(0)
-        setCustomPercent(0)
-        setNoOfPeople(0)
+                element.classList.remove('percent-clicked')
+            })
+            setBill(0)
+            setPercent(0)
+            setCustomPercent(0)
+            setNoOfPeople(0)
+        }
     }
     // Formatter (Currency is for USD).
     const formatter = (number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number)
